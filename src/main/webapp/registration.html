@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script>
+        function validateForm() {
+            let firstName = document.forms["registrationForm"]["fname"].value;
+            let lastName = document.forms["registrationForm"]["lname"].value;
+            let mobileNo = document.forms["registrationForm"]["mobileNo"].value;
+            let aadharNo = document.forms["registrationForm"]["aadharNo"].value;
+            let dob = document.forms["registrationForm"]["dateOfBirth"].value;
+            if (firstName == "") {
+                document.getElementById("fnameError").innerHTML = "First Name is required";
+                return false;
+            }
+            if (lastName == "") {
+                document.getElementById("lnameError").innerHTML = "Last Name is required";
+                return false;
+            }
+            if (mobileNo == "") {
+                document.getElementById("mobileNoError").innerHTML = "Mobile Number is required";
+                return false;
+            }
+            if (aadharNo == "") {
+                document.getElementById("aadharNoError").innerHTML = "Aadhar Number is required";
+                return false;
+            }
+            if (dob == "") {
+                document.getElementById("dateOfBirthError").innerHTML = "Date Of Birth is required";
+                return false;
+            }
+        }
+    </script>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #background-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    header.HandyKrafts {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: ff6a95;
+    }
+
+    form {
+        background-color: #fff;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #1A73E8;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">HandyKrafts</a>
+        <a href="#news">Categories</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#about">About Us</a>
+    </div>
+
+    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src="MetallicRemarkableLice-mobile.mp4" type="video/mp4">
+    </video>
+    <form name="registrationForm" action="registration">
+        <h3>Registration Form</h3>
+        <label for="fname"> Plese enter your first name : </label><br>
+        <input type="text" id="fname" name="fname" value=""><br>
+        <span id="fnameError" style="color:red"></span><br>
+        <label for="lname">Please enter your lastname : </label><br>
+        <input type="text" id="lname" name="lname" value=""><br>
+        <span id="lnameError" style="color:red"></span><br>
+        <label for="lname">Please enter your mobile number : </label><br>
+        <input type="text" id="mobileNo" name="mobileNo" value=""><br>
+        <span id="mobileNoError" style="color:red"></span><br>
+        <label for="lname">Please enter your aadhar number : </label><br>
+        <input type="text" id="aadharNo" name="aadharNo" value=""><br>
+        <span id="aadharNoError" style="color:red"></span><br>
+        <label for="lname">Please enter your DOB : </label><br>
+        <input type="date" id="dateOfBirth" name="dateOfBirth"><br><br>
+        <span id="dateOfBirthError" style="color:red"></span><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="footer">
+        <p>©2022 HandyKrafts.com All Rights Reserved</p>
+    </div>
+</body>
+
+</html>

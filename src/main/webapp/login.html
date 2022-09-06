@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script>
+        function startsWithCapital(word) {
+            return word.charAt(0) === word.charAt(0).toUpperCase()
+        }
+        function checkIfStringHasSpecialChar(_string) {
+            let spChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (spChars.test(_string)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function validateForm() {
+            let name = document.forms["loginForm"]["name"].value;
+            let password = document.forms["loginForm"]["password"].value;
+            if (name == "") {
+                document.getElementById("nameError").innerHTML="User Name is required"; 
+                return false;
+            }
+            if (password == "") {
+                document.getElementById("passwordError").innerHTML="Password is required"; 
+                return false;
+            } else if (password.length < 8) {
+                document.getElementById("passwordError").innerHTML="Password length must be atleast 8 characters"; 
+                return false;
+            } else if (password.length > 15) {
+                document.getElementById("passwordError").innerHTML="Password length must not exceed 15 characters"; 
+                return false;
+            } else if (startsWithCapital(password) === false) {
+                document.getElementById("passwordError").innerHTML="First letter of the password should be capital"; 
+                return false;
+            } else if(checkIfStringHasSpecialChar(password)===false){
+                document.getElementById("passwordError").innerHTML="The password muct contain at least one special character"; 
+                return false;
+            }
+        }
+    </script>
+</head>
+<style>
+    body {
+        /* background-color: lightblue; */
+        /* font-family: Verdana; */
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #background-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    header.HandyKrafts {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: ff6a95;
+    }
+
+    form {
+        background-color: #fff;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #1A73E8;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="">HandyKrafts</a>
+        <a href="">Categories</a>
+        <a href="">Contact Us</a>
+        <a href="">About Us</a>
+    </div>
+    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src="MetallicRemarkableLice-mobile.mp4" type="video/mp4">
+    </video>
+    <form name="loginForm" action="login" onsubmit="validateForm()">
+        <h3>Login Form</h3>
+        <label for="fname"> Please enter your name : </label><br>
+        <input type="text" id="fname" name="name" value=""><br>
+        <span id="nameError" style="color:red"></span><br>
+        <label for="lname">Please enter your password : </label><br>
+        <input type="text" id="lname" name="password" value=""><br><br>
+        <span id="passwordError" style="color:red"></span><br>
+        <a href="http://localhost:8080/ecommerse/registration.html" >New User</a>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="footer">
+        <p>©2022 HandyKrafts.com All Rights Reserved</p>
+    </div>
+</body>
+
+</html>
